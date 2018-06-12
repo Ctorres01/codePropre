@@ -19,5 +19,14 @@ public class LivretA extends CompteBancaire {
 		if (this.solde - montant > 0){
 			this.solde = solde - montant;
 		}
-	}	
+	}
+
+	public double getTauxRemuneration() {
+		return tauxRemuneration;
+	}
+
+	public void setTauxRemuneration(double tauxRemuneration) {
+		this.tauxRemuneration = tauxRemuneration;
+	}
+	
 }

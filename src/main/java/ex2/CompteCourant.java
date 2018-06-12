@@ -15,5 +15,14 @@ public class CompteCourant extends CompteBancaire {
 		if (this.solde - montant > decouvertAutorise){
 			this.solde = solde - montant;
 		}	
-	}	
+	}
+
+	public double getDecouvertAutorise() {
+		return decouvertAutorise;
+	}
+
+	public void setDecouvertAutorise(double decouvertAutorise) {
+		this.decouvertAutorise = decouvertAutorise;
+	}
+	
 }
