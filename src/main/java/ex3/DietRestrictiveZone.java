@@ -9,14 +9,7 @@ public class DietRestrictiveZone extends Zone {
 		this.acceptedDiet = acceptedDiet;
 	}
 
-	public AnimalDiet getAcceptedDiet() {
-		return acceptedDiet;
-	}
-
-	public void setAcceptedDiet(AnimalDiet acceptedDiet) {
-		this.acceptedDiet = acceptedDiet;
-	}
-	
+	@Override
 	public boolean accept(Animal animal) {
 		boolean isAccepted = false;
 		if(super.accept(animal)) {
@@ -26,5 +19,14 @@ public class DietRestrictiveZone extends Zone {
 		}
 		return isAccepted;
 	}
+	
+	public AnimalDiet getAcceptedDiet() {
+		return acceptedDiet;
+	}
+
+	public void setAcceptedDiet(AnimalDiet acceptedDiet) {
+		this.acceptedDiet = acceptedDiet;
+	}
+
 
 }

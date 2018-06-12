@@ -1,13 +1,18 @@
 package ex3;
 
+/**Enumération des régimes alimentaires des animaux
+ * @author Corentin Torres
+ *
+ */
 public enum AnimalDiet {
+	
 	HERBIVORE("herbivore"),
 	CARNIVORE("Carnivore");
 	
 	
-	private String libelle;
+	private String diet;
 	
-	private AnimalDiet(String libelle) {
-		this.libelle = libelle;
+	private AnimalDiet(String diet) {
+		this.diet = diet;
 	}
 }

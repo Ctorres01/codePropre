@@ -1,5 +1,9 @@
 package ex3;
 
+/**Enumération des types d'animaux
+ * @author Corentin Torres
+ *
+ */
 public enum AnimalType {
 	
 	MAMMIFERE("Mammifère"),

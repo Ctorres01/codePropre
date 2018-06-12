@@ -1,11 +1,21 @@
 package ex3;
 
+/**Classe représentant un animal du zoo
+ * @author Corentin Torres
+ *
+ */
 public class Animal {
 
 	private String name;
 	private AnimalType type;
 	private AnimalDiet diet;
 	
+	/**
+	 * Constructeur de la classe Animal
+	 * @param name: Nom de l'animal
+	 * @param type: Type de l'animal 
+	 * @param diet: R�gime alimentaire de l'animal
+	 */
 	public Animal(String name, AnimalType type, AnimalDiet diet) {
 		this.name = name;
 		this.type = type;
