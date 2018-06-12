@@ -1,37 +1,57 @@
 package ex3;
 
+import java.util.List;
+
 public class Zoo {
 
 	private String nom;
-	private SavaneAfricaine savaneAfricaine;
-	private ZoneCarnivore zoneCarnivore;
-	private FermeReptile fermeReptile;
-	private Aquarium aquarium;
+	
+	private List<Zone> zones;
+	private List<DietRestrictiveZone> dietZones;
 	
 	public Zoo(String nom){
+		SavaneAfricaine savaneAfricaine = new SavaneAfricaine("Savane Africaine");
+		ZoneCarnivore zoneCarnivore = new ZoneCarnivore("Zone Carnivores");
+		FermeReptile fermeReptilee = new FermeReptile("Ferme Aux Reptiles");
+		Aquarium aquarium = new Aquarium("Aquarium");
+		this.dietZones.add(savaneAfricaine);
+		this.dietZones.add(zoneCarnivore);
+		this.zones.add(fermeReptilee);
+		this.zones.add(aquarium);
 		this.nom = nom;
 	}
 	
-	public void addAnimal(String nomAnimal, String typeAnimal, String comportement){
-		if (typeAnimal.equals("MAMMIFERE") && comportement.equals("CARNIVORE")){
-			zoneCarnivore.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("MAMMIFERE") && comportement.equals("HERBIVORE")){
-			savaneAfricaine.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("REPTILE")){
-			fermeReptile.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("POISSON")){
-			aquarium.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
+	/**Ajoute un Animal donné au zoo en le mettant dans la bonne zone
+	 * @param animal: Animal à ajouter au zoo
+	 */
+	public void addAnimal(Animal animal) {
+		getAnimalZone(animal).addAnimal(animal);
 	}
 	
+	/**Méthode qui retourne la zone qui convient à l'animal passé en paramètre
+	 * @param animal dont on souhaite connaître la zone
+	 * @return la zone qui convient à l'animal passé en paramètre
+	 */
+	public Zone getAnimalZone(Animal animal) {
+		Zone acceptZone = null;
+		boolean isAccepted = false;
+		int i = 0;
+		while(!isAccepted && i<zones.size()) {
+			isAccepted = zones.get(i).accept(animal);
+			if(isAccepted) {
+				acceptZone = zones.get(i);
+			}
+		}
+		return acceptZone;
+	}
+	
+	/**Affiche la liste des animaux de chaque zone
+	 * 
+	 */
 	public void afficherListeAnimaux(){
-		savaneAfricaine.afficherListeAnimaux();
-		zoneCarnivore.afficherListeAnimaux();
-		fermeReptile.afficherListeAnimaux();
-		aquarium.afficherListeAnimaux();
+		for(Zone zone : zones) {
+			zone.displayAnimals();
+		}
 	}
 
 	/** Getter for nom
