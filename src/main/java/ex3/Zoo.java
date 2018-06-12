@@ -7,17 +7,12 @@ public class Zoo {
 	private String nom;
 	
 	private List<Zone> zones;
-	private List<DietRestrictiveZone> dietZones;
 	
 	public Zoo(String nom){
-		SavaneAfricaine savaneAfricaine = new SavaneAfricaine("Savane Africaine");
-		ZoneCarnivore zoneCarnivore = new ZoneCarnivore("Zone Carnivores");
-		FermeReptile fermeReptilee = new FermeReptile("Ferme Aux Reptiles");
-		Aquarium aquarium = new Aquarium("Aquarium");
-		this.dietZones.add(savaneAfricaine);
-		this.dietZones.add(zoneCarnivore);
-		this.zones.add(fermeReptilee);
-		this.zones.add(aquarium);
+		this.zones.add(new SavaneAfricaine("Savane Africaine"));
+		this.zones.add(new ZoneCarnivore("Zone Carnivores"));
+		this.zones.add(new FermeReptile("Ferme Aux Reptiles"));
+		this.zones.add(new Aquarium("Aquarium"));
 		this.nom = nom;
 	}
 	
